@@ -12,12 +12,12 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-teal-700 px-4 sm:px-6 lg:px-8"
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20">
         {/* Profile Image */}
         <div className="flex justify-center lg:justify-start">
-          <div className="relative w-52 h-52 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-lg">
+          <div className="relative w-52 h-52 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-gray-600/30 shadow-2xl">
             <img
               src="/myself.jpg"
               alt="Naveen John"
@@ -40,7 +40,7 @@ const Hero = () => {
           </p>
 
           <p
-            className="text-blue-100 text-lg leading-relaxed max-w-2xl"
+            className="text-gray-300 text-lg leading-relaxed max-w-2xl"
             style={{ textAlign: "left" }}
           >
             Welcome to my portfolio! I'm a passionate full stack developer with
@@ -60,7 +60,7 @@ const Hero = () => {
             </a>
             <button
               onClick={() => scrollToSection("contact")}
-              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-white text-white font-medium rounded-md hover:bg-white hover:text-blue-900 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 text-gray-300 font-medium rounded-md hover:bg-gray-300 hover:text-gray-900 transition-all duration-300"
             >
               Contact Me
             </button>
@@ -71,7 +71,7 @@ const Hero = () => {
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
           <button
             onClick={() => scrollToSection("skills")}
-            className="text-white/70 hover:text-white transition-colors duration-300"
+            className="text-gray-400 hover:text-gray-200 transition-colors duration-300"
           >
             <ArrowDown size={28} />
           </button>
