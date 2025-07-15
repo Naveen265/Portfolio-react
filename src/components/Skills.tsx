@@ -82,25 +82,25 @@ const Skills = () => {
     switch (theme) {
       case 'light':
         return {
-          section: 'bg-gradient-to-br from-indigo-50 via-white to-purple-50',
+          section: 'bg-gradient-to-br from-white via-blue-50 to-white',
           title: 'text-gray-900',
-          subtitle: 'text-gray-600',
-          card: 'bg-white border-gray-200 hover:border-indigo-300',
-          cardIcon: 'bg-indigo-100',
-          cardTitle: 'text-gray-800 group-hover:text-gray-900',
-          cardDesc: 'text-gray-600 group-hover:text-gray-700',
+          subtitle: 'text-gray-700',
+          card: 'bg-white border-gray-200 hover:border-blue-400',
+          cardIcon: 'bg-blue-100',
+          cardTitle: 'text-gray-900',
+          cardDesc: 'text-gray-600',
           progressBg: 'bg-gray-200',
-          gameElement: 'text-indigo-600'
+          gameElement: 'text-blue-600'
         };
       case 'special':
         return {
-          section: 'bg-gradient-to-br from-black via-purple-950/20 to-black',
+          section: 'bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-800',
           title: 'text-white',
-          subtitle: 'text-gray-300',
-          card: 'bg-gray-900 border-purple-500/30 hover:border-purple-500/50',
-          cardIcon: 'bg-purple-900/30',
-          cardTitle: 'text-gray-200 group-hover:text-white',
-          cardDesc: 'text-gray-400 group-hover:text-gray-300',
+          subtitle: 'text-gray-400',
+          card: 'bg-slate-800 border-purple-500/30 hover:border-purple-400',
+          cardIcon: 'bg-purple-900/40',
+          cardTitle: 'text-gray-200',
+          cardDesc: 'text-gray-400',
           progressBg: 'bg-gray-700',
           gameElement: 'text-purple-400'
         };
@@ -111,8 +111,8 @@ const Skills = () => {
           subtitle: 'text-gray-400',
           card: 'bg-slate-800 border-purple-500/30 hover:border-purple-400',
           cardIcon: 'bg-purple-900/40',
-          cardTitle: 'text-gray-200 group-hover:text-white',
-          cardDesc: 'text-gray-400 group-hover:text-gray-300',
+          cardTitle: 'text-gray-200',
+          cardDesc: 'text-gray-400',
           progressBg: 'bg-gray-700',
           gameElement: 'text-purple-400'
         };
@@ -147,41 +147,45 @@ const Skills = () => {
       id="skills"
       className={`py-24 ${themeClasses.section} relative overflow-hidden`}
     >
-      {/* Gaming UI Elements - Abstract Background */}
-      <div className="absolute inset-0 opacity-5">
-        {/* Pixel Grid Pattern */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(90deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px),
-            linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '20px 20px'
-        }}></div>
-        
-        {/* Gaming HUD Elements */}
-        <div className="absolute top-10 left-10">
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-            <div className="w-20 h-2 bg-green-500/30 rounded-full">
-              <div className="w-3/4 h-full bg-green-500 rounded-full"></div>
-            </div>
+      {/* Gaming Elements - Only for Special Theme */}
+      {theme === 'special' && (
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(90deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px),
+              linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '20px 20px'
+          }}></div>
+          <div className="absolute top-10 right-10">
+            <Gamepad2 className="w-12 h-12 text-purple-500" />
           </div>
         </div>
-        
-        <div className="absolute top-10 right-10">
-          <div className="flex items-center gap-2">
-            <Trophy className={`w-6 h-6 ${themeClasses.gameElement}`} />
-            <span className={`font-mono text-sm ${themeClasses.gameElement}`}>LVL 99</span>
-          </div>
-        </div>
-      </div>
+      )}
 
-      {/* Floating Gaming Icons */}
-      <div className="absolute inset-0 overflow-hidden">
-        <Gamepad2 className={`absolute top-1/4 left-1/4 w-8 h-8 ${themeClasses.gameElement} opacity-10 animate-pulse`} />
-        <Target className={`absolute top-3/4 right-1/4 w-6 h-6 ${themeClasses.gameElement} opacity-10 animate-pulse`} style={{ animationDelay: '1s' }} />
-        <Zap className={`absolute top-1/2 left-3/4 w-7 h-7 ${themeClasses.gameElement} opacity-10 animate-pulse`} style={{ animationDelay: '2s' }} />
-      </div>
+      {/* Light Theme Gaming Elements */}
+      {theme === 'light' && (
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 right-10">
+            <Gamepad2 className="w-12 h-12 text-blue-500" />
+          </div>
+          <div className="absolute bottom-10 left-10">
+            <Trophy className="w-10 h-10 text-blue-500" />
+          </div>
+        </div>
+      )}
+
+      {/* Dark Theme Gaming Elements */}
+      {theme === 'dark' && (
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 right-10">
+            <Gamepad2 className="w-12 h-12 text-purple-500" />
+          </div>
+          <div className="absolute bottom-10 left-10">
+            <Trophy className="w-10 h-10 text-purple-500" />
+          </div>
+        </div>
+      )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -191,26 +195,25 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          {/* Gaming-Style Header */}
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className={`p-2 rounded-lg bg-purple-600/20 border border-purple-500/30`}>
+            <div className={`p-2 rounded-lg ${theme === 'light' ? 'bg-blue-100' : 'bg-purple-600/20'} border ${theme === 'light' ? 'border-blue-300' : 'border-purple-500/30'}`}>
               <Gamepad2 className={`w-8 h-8 ${themeClasses.gameElement}`} />
             </div>
             <h2 className={`text-5xl sm:text-6xl font-bold tracking-tight ${themeClasses.title}`}>
-              Skill Tree
+              Skills
             </h2>
-            <div className={`p-2 rounded-lg bg-purple-600/20 border border-purple-500/30`}>
+            <div className={`p-2 rounded-lg ${theme === 'light' ? 'bg-blue-100' : 'bg-purple-600/20'} border ${theme === 'light' ? 'border-blue-300' : 'border-purple-500/30'}`}>
               <Trophy className={`w-8 h-8 ${themeClasses.gameElement}`} />
             </div>
           </div>
           
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-600 mx-auto rounded-full mb-6" />
+          <div className={`w-24 h-1 ${theme === 'light' ? 'bg-gradient-to-r from-blue-500 to-indigo-600' : 'bg-gradient-to-r from-purple-500 to-indigo-600'} mx-auto rounded-full mb-6`} />
           <p className={`text-xl ${themeClasses.subtitle} max-w-2xl mx-auto leading-relaxed`}>
-            Unlocked abilities and mastered technologies in my development journey
+            My technical expertise and development capabilities
           </p>
         </motion.div>
 
-        {/* Skill Cards with Gaming Elements */}
+        {/* Skill Cards */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -229,9 +232,8 @@ const Skills = () => {
               className="group relative"
             >
               <div className={`relative rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 overflow-hidden ${themeClasses.card}`}>
-                {/* Gaming Card Header */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className={`text-xs font-mono px-2 py-1 rounded ${themeClasses.gameElement} bg-purple-500/10`}>
+                  <div className={`text-xs font-mono px-2 py-1 rounded ${themeClasses.gameElement} ${theme === 'light' ? 'bg-blue-100' : 'bg-purple-500/10'}`}>
                     SKILL
                   </div>
                   <div className={`text-xs font-mono ${themeClasses.gameElement}`}>
@@ -239,7 +241,6 @@ const Skills = () => {
                   </div>
                 </div>
 
-                {/* Skill Icon with Gaming Style */}
                 <div className="flex flex-col items-center text-center space-y-4">
                   <motion.div
                     animate={{ rotate: 0 }}
@@ -247,21 +248,16 @@ const Skills = () => {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className={`relative p-4 rounded-2xl transition-all duration-300 ${themeClasses.cardIcon}`}
                   >
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
-                    />
-                    <div className="relative text-gray-300 group-hover:scale-110 transition-transform duration-300">
+                    <div className="relative text-gray-600 group-hover:scale-110 transition-transform duration-300">
                       {skill.icon}
                     </div>
                   </motion.div>
 
-                  {/* Skill Info */}
                   <div className="space-y-3 w-full">
                     <h3 className={`text-lg font-bold transition-colors duration-300 ${themeClasses.cardTitle}`}>
                       {skill.name}
                     </h3>
                     
-                    {/* Gaming-Style Progress Bar */}
                     <div className="w-full">
                       <div className={`w-full h-2 ${themeClasses.progressBg} rounded-full overflow-hidden`}>
                         <motion.div
@@ -278,30 +274,23 @@ const Skills = () => {
                     </p>
                   </div>
                 </div>
-
-                {/* Gaming Card Border Effect */}
-                <div
-                  className={`absolute top-0 right-0 w-16 h-16 bg-gradient-to-br ${skill.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}
-                  style={{ clipPath: "polygon(100% 0%, 0% 0%, 100% 100%)" }}
-                />
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Gaming Achievement Badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-center mt-16"
         >
-          <div className={`inline-flex items-center space-x-3 px-6 py-3 rounded-full border bg-purple-500/10 border-purple-500/30`}>
+          <div className={`inline-flex items-center space-x-3 px-6 py-3 rounded-full border ${theme === 'light' ? 'bg-blue-100 border-blue-300' : 'bg-purple-500/10 border-purple-500/30'}`}>
             <Trophy className={`w-5 h-5 ${themeClasses.gameElement}`} />
             <span className={`font-medium ${themeClasses.gameElement}`}>
-              Achievement Unlocked: Full Stack Master
+              Full Stack Developer
             </span>
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            <div className={`w-2 h-2 ${theme === 'light' ? 'bg-blue-500' : 'bg-purple-500'} rounded-full animate-pulse`} />
           </div>
         </motion.div>
       </div>
