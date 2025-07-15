@@ -53,7 +53,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 pt-2">
             <button
               disabled={true}
-              title="I’m not sharing my resume at the moment. Thanks for understanding!"
+              title="I’m not sharing my resume at the moment. Thanks for understanding! Feel free to reach out instead."
             >
               <a
                 // href="/Naveen's_resume.pdf"
