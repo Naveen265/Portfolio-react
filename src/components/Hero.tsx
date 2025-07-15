@@ -1,5 +1,5 @@
 import React from "react";
-import { Download, ArrowDown } from "lucide-react";
+import { Download } from "lucide-react";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
