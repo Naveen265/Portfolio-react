@@ -59,7 +59,7 @@ const Contact = () => {
         {/* Contact CTA */}
         <div className="text-center mb-12">
           <a
-            href="mailto:naveenduke526@gmail.com"
+            href="mailto:naveenjohnken@gmail.com"
             className="inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-lg font-semibold rounded-full shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300"
           >
             <Mail className="w-5 h-5" />
