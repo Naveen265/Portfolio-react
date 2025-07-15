@@ -1,5 +1,5 @@
 import React from "react";
-import { Download, ArrowDown } from "lucide-react";
+import { Download } from "lucide-react";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -19,12 +19,12 @@ const Hero = () => {
         <div className="flex justify-center lg:justify-start">
           <div className="relative w-52 h-52 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-gray-600/30 shadow-2xl">
             <img
-              src="/myself.jpg"
+              src="/naan.png"
               alt="Naveen John"
               className="w-full h-full object-cover"
             />
           </div>
-        </div>
+        </div>  
 
         {/* Text Section */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
@@ -53,7 +53,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 pt-2">
             <button
               disabled={true}
-              title="I’m not sharing my resume at the moment. Thanks for understanding!"
+              title="I’m not sharing my resume at the moment. Thanks for understanding! Feel free to reach out instead."
             >
               <a
                 // href="/Naveen's_resume.pdf"
