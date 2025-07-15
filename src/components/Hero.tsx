@@ -51,13 +51,19 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 pt-2">
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-md shadow-lg hover:scale-105 transition-all duration-300"
+            <button
+              disabled={true}
+              title="I’m not sharing my resume at the moment. Thanks for understanding!"
             >
-              <Download size={18} />
-              Download Resume
-            </a>
+              <a
+                // href="/Naveen's_resume.pdf"
+                style={{ cursor: "pointer" }}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-md shadow-lg hover:scale-105 transition-all duration-300"
+              >
+                <Download size={18} />
+                Download Resume
+              </a>
+            </button>
             <button
               onClick={() => scrollToSection("contact")}
               className="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 text-gray-300 font-medium rounded-md hover:bg-gray-300 hover:text-gray-900 transition-all duration-300"
@@ -68,14 +74,14 @@ const Hero = () => {
         </div>
 
         {/* Scroll Down Indicator */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
+        {/* <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
           <button
             onClick={() => scrollToSection("skills")}
             className="text-gray-400 hover:text-gray-200 transition-colors duration-300"
           >
             <ArrowDown size={28} />
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
