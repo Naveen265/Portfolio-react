@@ -9,12 +9,12 @@ const Experience = () => {
       duration: 'Feb 2023 - Present',
       location: 'Remote',
       responsibilities: [
-        'Developed various applications as a Software Engineer, contributing to multiple successful project deliveries',
-        'Collaborated with cross-functional teams for requirement gathering, design, implementation, and comprehensive testing',
-        'Participated in the complete software development lifecycle, from initial planning to final deployment',
-        'Designed and implemented new software functionalities to meet specific client requirements and business objectives',
-        'Proactively identified and resolved complex software development challenges, improving overall project efficiency',
-        'Mentored junior developers and contributed to best practices documentation'
+        'Redesigned and enhanced an employee management system by fixing critical bugs and adding new features, improving system stability and user experience',
+        'Developed and integrated a reporting module with data visualizations and PDF export capability to streamline business reporting',
+        'Collaborated with a leading U.S.-based client team to refactor a complex payment workflow, significantly reducing load times and improving maintainability',
+        'Worked across the full stack (MERN) to build scalable web applications, ensuring adherence to best practices and coding standards',
+        'Conducted code reviews, contributed to architectural discussions, and documented processes to ensure consistent development workflows',
+        'Mentored junior developers by reviewing code, offering guidance, and sharing knowledge of frontend and backend technologies'
       ]
     }
   ];

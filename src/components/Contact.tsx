@@ -34,60 +34,58 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
+      <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="text-5xl font-extrabold text-white mb-4 tracking-tight">
             Let's Connect
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Drop me a line, I'd love to hear from you and discuss potential opportunities
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            I'm always open to chatting about new opportunities, collaborations, or just saying hello.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          {/* Contact CTA */}
-          <div className="text-center mb-12">
+        {/* Contact CTA */}
+        <div className="text-center mb-12">
+          <a
+            href="mailto:naveenduke526@gmail.com"
+            className="inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-lg font-semibold rounded-full shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300"
+          >
+            <Mail className="w-5 h-5" />
+            Send me an email
+          </a>
+        </div>
+
+        {/* Social Links */}
+        <div className="flex justify-center flex-wrap gap-5 mb-12">
+          {socialLinks.map((link, index) => (
             <a
-              href="mailto:naveenduke526@gmail.com"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-orange-500 text-white font-medium rounded-lg shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105"
+              key={index}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group p-4 bg-white/10 text-white rounded-full transition-all duration-300 hover:scale-110 ${link.color}`}
+              aria-label={link.name}
+              title={link.name}
             >
-              <Mail className="w-5 h-5" />
-              Send me an email
+              {link.icon}
             </a>
-          </div>
+          ))}
+        </div>
 
-          {/* Social Links */}
-          <div className="flex justify-center space-x-4 mb-12">
-            {socialLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`p-3 bg-white/10 text-white rounded-full transition-all duration-300 transform hover:scale-110 ${link.color}`}
-                aria-label={link.name}
-              >
-                {link.icon}
-              </a>
-            ))}
-          </div>
+        {/* Footer */}
+        <div className="text-center border-t border-white/10 pt-8">
+          <p className="text-sm text-gray-500 mb-4">
+            © 2018  <span className="text-white font-medium">Naveen John</span>. All rights reserved.
+          </p>
 
-          {/* Footer */}
-          <div className="text-center border-t border-white/20 pt-8">
-            <p className="text-gray-300 mb-4">
-              © 2024 Naveen John. All rights reserved.
-            </p>
-            
-            {/* Back to Top Button */}
-            <button
-              onClick={scrollToTop}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg hover:bg-gray-600/50 transition-all duration-300"
-            >
-              <ArrowUp className="w-4 h-4" />
-              Back to Top
-            </button>
-          </div>
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-600 text-gray-300 rounded-full hover:bg-gray-700 hover:text-white transition-all duration-300"
+          >
+            <ArrowUp className="w-4 h-4" />
+            Back to Top
+          </button>
         </div>
       </div>
     </section>
