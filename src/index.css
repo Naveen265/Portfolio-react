@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Theme Variables */
+:root {
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --accent: #f97316;
+}
+
+.theme-light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --accent: #ea580c;
+}
+
+.theme-special {
+  --bg-primary: #000000;
+  --bg-secondary: #1a0000;
+  --text-primary: #ffffff;
+  --text-secondary: #fca5a5;
+  --accent: #dc2626;
+}
+
+/* Special Theme Animations */
+.theme-special {
+  background: linear-gradient(135deg, #000000 0%, #1a0000 50%, #000000 100%);
+}
+
+.theme-special .special-glow {
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+}
+
+.theme-special .special-border {
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+/* Racing stripes animation for special theme */
+@keyframes racing-stripes {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.theme-special .racing-bg {
+  background: linear-gradient(
+    45deg,
+    transparent 25%,
+    rgba(220, 38, 38, 0.1) 25%,
+    rgba(220, 38, 38, 0.1) 50%,
+    transparent 50%,
+    transparent 75%,
+    rgba(220, 38, 38, 0.1) 75%
+  );
+  background-size: 20px 20px;
+  animation: racing-stripes 2s linear infinite;
+}

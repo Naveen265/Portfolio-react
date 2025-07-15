@@ -1,7 +1,10 @@
 import React from 'react';
 import { Mail, Github, Linkedin, Facebook, Instagram, ArrowUp } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Contact = () => {
+  const { theme } = useTheme();
+
   const socialLinks = [
     {
       name: 'LinkedIn',
@@ -33,14 +36,57 @@ const Contact = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const getThemeClasses = () => {
+    switch (theme) {
+      case 'light':
+        return {
+          section: 'bg-gradient-to-br from-gray-100 via-white to-gray-50',
+          title: 'text-gray-900',
+          subtitle: 'text-gray-600',
+          button: 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700',
+          social: 'bg-gray-200 text-gray-700',
+          footer: 'border-gray-300',
+          footerText: 'text-gray-500',
+          footerName: 'text-gray-900',
+          backButton: 'border-gray-400 text-gray-600 hover:bg-gray-600 hover:text-white'
+        };
+      case 'special':
+        return {
+          section: 'bg-gradient-to-br from-black via-red-950/20 to-black racing-bg',
+          title: 'text-white',
+          subtitle: 'text-gray-300',
+          button: 'bg-gradient-to-r from-red-600 to-orange-600 text-white hover:from-red-700 hover:to-orange-700 special-glow',
+          social: 'bg-red-900/30 text-white special-border',
+          footer: 'border-red-500/30',
+          footerText: 'text-gray-400',
+          footerName: 'text-white',
+          backButton: 'border-red-600 text-red-400 hover:bg-red-600 hover:text-white'
+        };
+      default:
+        return {
+          section: 'bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900',
+          title: 'text-white',
+          subtitle: 'text-gray-400',
+          button: 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:scale-105 hover:shadow-xl',
+          social: 'bg-white/10 text-white',
+          footer: 'border-white/10',
+          footerText: 'text-gray-500',
+          footerName: 'text-white',
+          backButton: 'border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white'
+        };
+    }
+  };
+
+  const themeClasses = getThemeClasses();
+
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
+    <section id="contact" className={`py-24 ${themeClasses.section}`}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-extrabold text-white mb-4 tracking-tight">
+          <h2 className={`text-5xl font-extrabold mb-4 tracking-tight ${themeClasses.title}`}>
             Let's Connect
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className={`text-lg max-w-2xl mx-auto ${themeClasses.subtitle}`}>
             I'm always open to chatting about new opportunities, collaborations, or just saying hello.
           </p>
         </div>
@@ -49,7 +95,7 @@ const Contact = () => {
         <div className="text-center mb-12">
           <a
             href="mailto:naveenduke526@gmail.com"
-            className="inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-lg font-semibold rounded-full shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300"
+            className={`inline-flex items-center gap-3 px-10 py-4 text-lg font-semibold rounded-full shadow-lg transition-transform duration-300 ${themeClasses.button}`}
           >
             <Mail className="w-5 h-5" />
             Send me an email
@@ -64,7 +110,7 @@ const Contact = () => {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group p-4 bg-white/10 text-white rounded-full transition-all duration-300 hover:scale-110 ${link.color}`}
+              className={`group p-4 rounded-full transition-all duration-300 hover:scale-110 ${themeClasses.social} ${link.color}`}
               aria-label={link.name}
               title={link.name}
             >
@@ -74,14 +120,14 @@ const Contact = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center border-t border-white/10 pt-8">
-          <p className="text-sm text-gray-500 mb-4">
-            © 2018  <span className="text-white font-medium">Naveen John</span>. All rights reserved.
+        <div className={`text-center border-t pt-8 ${themeClasses.footer}`}>
+          <p className={`text-sm mb-4 ${themeClasses.footerText}`}>
+            © 2018  <span className={`font-medium ${themeClasses.footerName}`}>Naveen John</span>. All rights reserved.
           </p>
 
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-600 text-gray-300 rounded-full hover:bg-gray-700 hover:text-white transition-all duration-300"
+            className={`inline-flex items-center gap-2 px-5 py-2.5 border rounded-full transition-all duration-300 ${themeClasses.backButton}`}
           >
             <ArrowUp className="w-4 h-4" />
             Back to Top

@@ -10,8 +10,11 @@ import {
   Smartphone,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTheme } from "../contexts/ThemeContext";
 
 const Skills = () => {
+  const { theme } = useTheme();
+
   const skills = [
     {
       name: "HTML5",
@@ -71,6 +74,49 @@ const Skills = () => {
     },
   ];
 
+  const getThemeClasses = () => {
+    switch (theme) {
+      case 'light':
+        return {
+          section: 'bg-gradient-to-br from-gray-50 via-white to-gray-100',
+          title: 'text-gray-900',
+          subtitle: 'text-gray-600',
+          card: 'bg-white border-gray-200 hover:border-gray-300',
+          cardIcon: 'bg-gray-100',
+          cardTitle: 'text-gray-800 group-hover:text-gray-900',
+          cardDesc: 'text-gray-600 group-hover:text-gray-700',
+          badge: 'bg-gradient-to-r from-blue-500/10 to-purple-500/10 border-gray-300',
+          badgeText: 'text-gray-600'
+        };
+      case 'special':
+        return {
+          section: 'bg-gradient-to-br from-black via-red-950/20 to-black racing-bg',
+          title: 'text-white',
+          subtitle: 'text-gray-300',
+          card: 'bg-gray-900 border-red-500/30 hover:border-red-500/50 special-glow',
+          cardIcon: 'bg-red-900/30',
+          cardTitle: 'text-gray-200 group-hover:text-white',
+          cardDesc: 'text-gray-400 group-hover:text-gray-300',
+          badge: 'bg-gradient-to-r from-red-500/10 to-orange-500/10 border-red-600',
+          badgeText: 'text-red-400'
+        };
+      default:
+        return {
+          section: 'bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800',
+          title: 'text-white',
+          subtitle: 'text-gray-400',
+          card: 'bg-gray-800 border-gray-700 hover:border-gray-600',
+          cardIcon: 'bg-gray-700',
+          cardTitle: 'text-gray-200 group-hover:text-white',
+          cardDesc: 'text-gray-400 group-hover:text-gray-300',
+          badge: 'bg-gradient-to-r from-blue-500/10 to-purple-500/10 border-gray-600',
+          badgeText: 'text-gray-400'
+        };
+    }
+  };
+
+  const themeClasses = getThemeClasses();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -95,7 +141,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-24 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800 relative overflow-hidden"
+      className={`py-24 ${themeClasses.section} relative overflow-hidden`}
     >
       {/* Decorative blobs */}
       <div className="absolute top-0 left-0 w-full h-full">
@@ -118,12 +164,12 @@ const Skills = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="inline-block"
           >
-            <h2 className="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent mb-6 tracking-tight">
-              <span className="text-white">My Skills</span>
+            <h2 className={`text-5xl sm:text-6xl font-bold mb-6 tracking-tight ${themeClasses.title}`}>
+              My Skills
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-6" />
           </motion.div>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className={`text-xl ${themeClasses.subtitle} max-w-2xl mx-auto leading-relaxed`}>
             A comprehensive toolkit of technologies and frameworks I use to
             build exceptional digital experiences
           </p>
@@ -147,7 +193,7 @@ const Skills = () => {
               }}
               className="group relative"
             >
-              <div className="relative bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-700 hover:border-gray-600 overflow-hidden">
+              <div className={`relative rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 overflow-hidden ${themeClasses.card}`}>
                 {/* Hover glow */}
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
@@ -160,7 +206,7 @@ const Skills = () => {
                     animate={{ rotate: 0 }}
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6, ease: "easeInOut" }}
-                    className="relative p-4 rounded-2xl bg-gray-700 transition-all duration-300"
+                    className={`relative p-4 rounded-2xl transition-all duration-300 ${themeClasses.cardIcon}`}
                   >
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
@@ -172,10 +218,10 @@ const Skills = () => {
 
                   {/* Name & description */}
                   <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-gray-200 group-hover:text-white transition-colors duration-300">
+                    <h3 className={`text-xl font-bold transition-colors duration-300 ${themeClasses.cardTitle}`}>
                       {skill.name}
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                    <p className={`text-sm leading-relaxed transition-colors duration-300 ${themeClasses.cardDesc}`}>
                       {skill.description}
                     </p>
                   </div>
@@ -198,9 +244,9 @@ const Skills = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-center mt-16"
         >
-          <div className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full border border-gray-600">
+          <div className={`inline-flex items-center space-x-2 px-6 py-3 rounded-full border ${themeClasses.badge}`}>
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <span className="text-gray-400 font-medium">
+            <span className={`font-medium ${themeClasses.badgeText}`}>
               Always learning and growing
             </span>
           </div>

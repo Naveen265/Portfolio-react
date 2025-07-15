@@ -1,7 +1,10 @@
 import React from 'react';
 import { MapPin, Calendar, ChevronRight } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Experience = () => {
+  const { theme } = useTheme();
+
   const experiences = [
     {
       company: 'Avasoft',
@@ -19,14 +22,54 @@ const Experience = () => {
     }
   ];
 
+  const getThemeClasses = () => {
+    switch (theme) {
+      case 'light':
+        return {
+          section: 'bg-white',
+          title: 'text-gray-900',
+          subtitle: 'text-gray-600',
+          card: 'bg-gray-50 border-gray-200',
+          position: 'text-gray-900',
+          company: 'text-orange-600',
+          meta: 'text-gray-500',
+          text: 'text-gray-700'
+        };
+      case 'special':
+        return {
+          section: 'bg-black racing-bg',
+          title: 'text-white',
+          subtitle: 'text-gray-300',
+          card: 'bg-gray-900 border-red-500/30 special-glow',
+          position: 'text-white',
+          company: 'text-red-400',
+          meta: 'text-gray-400',
+          text: 'text-gray-300'
+        };
+      default:
+        return {
+          section: 'bg-gray-900',
+          title: 'text-white',
+          subtitle: 'text-gray-400',
+          card: 'bg-gray-800 border-gray-700',
+          position: 'text-white',
+          company: 'text-orange-400',
+          meta: 'text-gray-400',
+          text: 'text-gray-300'
+        };
+    }
+  };
+
+  const themeClasses = getThemeClasses();
+
   return (
-    <section id="experience" className="py-20 bg-gray-900">
+    <section id="experience" className={`py-20 ${themeClasses.section}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className={`text-4xl sm:text-5xl font-bold mb-4 ${themeClasses.title}`}>
             Work Experience
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className={`text-xl max-w-2xl mx-auto ${themeClasses.subtitle}`}>
             My professional journey and contributions to the software development industry
           </p>
         </div>
@@ -45,23 +88,23 @@ const Experience = () => {
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-700">
+                <div className={`flex-1 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 border ${themeClasses.card}`}>
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                     <div>
-                      <h3 className="text-2xl font-bold text-white mb-1">
+                      <h3 className={`text-2xl font-bold mb-1 ${themeClasses.position}`}>
                         {exp.position}
                       </h3>
-                      <h4 className="text-xl font-semibold text-orange-400 mb-2">
+                      <h4 className={`text-xl font-semibold mb-2 ${themeClasses.company}`}>
                         {exp.company}
                       </h4>
                     </div>
                     
                     <div className="flex flex-col sm:items-end space-y-2">
-                      <div className="flex items-center text-gray-400">
+                      <div className={`flex items-center ${themeClasses.meta}`}>
                         <Calendar className="w-4 h-4 mr-2" />
                         <span className="text-sm">{exp.duration}</span>
                       </div>
-                      <div className="flex items-center text-gray-400">
+                      <div className={`flex items-center ${themeClasses.meta}`}>
                         <MapPin className="w-4 h-4 mr-2" />
                         <span className="text-sm">{exp.location}</span>
                       </div>
@@ -71,8 +114,8 @@ const Experience = () => {
                   <div className="space-y-3">
                     {exp.responsibilities.map((responsibility, idx) => (
                       <div key={idx} className="flex items-start space-x-3">
-                        <ChevronRight className="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" />
-                        <p className="text-gray-300 leading-relaxed">
+                        <ChevronRight className={`w-5 h-5 mt-0.5 flex-shrink-0 ${themeClasses.company}`} />
+                        <p className={`leading-relaxed ${themeClasses.text}`}>
                           {responsibility}
                         </p>
                       </div>
