@@ -7,7 +7,7 @@ const Experience = () => {
       company: 'Avasoft',
       position: 'Software Engineer',
       duration: 'Feb 2023 - Present',
-      location: 'Remote',
+      location: 'Chennai',
       responsibilities: [
         'Redesigned and enhanced an employee management system by fixing critical bugs and adding new features, improving system stability and user experience',
         'Developed and integrated a reporting module with data visualizations and PDF export capability to streamline business reporting',
