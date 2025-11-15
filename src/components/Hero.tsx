@@ -24,7 +24,7 @@ const Hero = () => {
               className="w-full h-full object-cover"
             />
           </div>
-        </div>  
+        </div>
 
         {/* Text Section */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
@@ -51,12 +51,9 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 pt-2">
-            <button
-              disabled={true}
-              title="I’m not sharing my resume at the moment. Thanks for understanding! Feel free to reach out instead."
-            >
+            <button>
               <a
-                // href="/Naveen's_resume.pdf"
+                href="/Naveen_J_Resume.pdf"
                 style={{ cursor: "pointer" }}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-md shadow-lg hover:scale-105 transition-all duration-300"
               >
