@@ -89,7 +89,6 @@ const Contact = () => {
           <p className="text-sm text-gray-500 mb-4">
             Ac 2018 <span className="text-white font-medium">Naveen John</span>.
             All rights reserved.
-            <div>Version 2.0 is coming... and it's worth the wait.</div>
           </p>
 
           <button
