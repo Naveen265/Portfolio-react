@@ -87,7 +87,7 @@ const Contact = () => {
         {/* Footer */}
         <div className="text-center border-t border-white/10 pt-8">
           <p className="text-sm text-gray-500 mb-4">
-            Ac 2018 <span className="text-white font-medium">Naveen John</span>.
+            © 2018 <span className="text-white font-medium">Naveen John</span>.
             All rights reserved.
           </p>
 
